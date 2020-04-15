@@ -1,0 +1,148 @@
+/*--Base Element Style--*/
+
+body {
+    font-family:Helvetica;
+}
+
+.header h1 {
+    font-size:1.5em;
+}
+
+h1,
+h3 {
+    margin:0px;
+    padding:0px;
+}
+
+ul {
+    margin:0px;
+}
+
+li {
+    list-style:none;
+    padding:0.5em;
+    margin:0px;
+}
+
+/*--Base Layout Style--*/
+
+.page {
+    display:flex;
+    flex-flow:column nowrap;
+    align-items:center;
+}
+
+.header {
+    width:100%;
+    background:lightgrey;
+    display:flex;
+    margin:0px;
+    padding:0px;
+}
+
+.id {
+    width:50%;
+    margin-left:2em;
+    display:flex;
+    flex-flow:row nowrap;
+    align-items:center;
+    justify-content:flex-start;
+}
+
+.name {
+    color:steelblue;
+    padding-right:0.5em;
+}
+
+.logo {
+    flex-shrink:1;
+}
+
+.nav {
+    width:50%;
+    padding-right:1em;
+    margin:auto;
+    display:flex;
+    justify-content:flex-end;
+    flex-basis:auto;
+}
+
+.nav li {
+    margin:0 1em 0 1em;
+}
+
+.banner {
+    width:100%;
+    padding:2em 0 2em 0;
+    text-align:center;
+    background:lightsteelblue;
+}
+
+.section-title {
+    text-align:center;
+}
+
+.main-section {
+    width:1200px;
+    display:flex;
+    flex-flow:column nowrap;
+}
+
+.row {
+    display:flex;
+    background:black;
+}
+
+.box {
+    flex-grow:1;
+    margin:10px;
+    height:5em;
+    padding:0.5em 5em 4em 5em;
+    text-align:center;
+    background:grey;
+}
+
+.footer {
+    width:5em;
+    margin-top:2em;
+    margin-bottom:2em;
+    padding:1em;
+    background:lightgrey;
+    text-align:center;
+}
+
+@media (max-width:1200px) {
+    .main-section {
+       width:90%; 
+       display:flex;
+       flex-flow: column nowrap;
+       justify-content:space-between;
+       align-content:center;
+    }
+} 
+
+@media (max-width:800px) {
+    .nav {
+        display:none;
+    }
+    .menu {
+        width:50%;
+        padding:15px 2em 15px 0;
+        display:flex;
+        flex-flow:column nowrap;
+        justify-content:space-between;
+        align-items:flex-end;
+    }
+    .menu div {
+        margin:1px;
+        background:black;
+        width:40px;
+        height:4px;
+    }
+} 
+
+@media (max-width:500px) {
+    .row {
+        display:flex;
+        flex-flow:column nowrap;
+} 
