@@ -1,0 +1,98 @@
+<html>
+<head>
+    <title>hello</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="normalization.css">
+    <script src="change_welcome_message.js"></script>
+    <meta name="viewport" content="width=device-width maximum-scale=1">
+</head>
+
+<body>
+    <div id="prompt">
+        <div class="prompt-close" onclick="hideMenu()">
+            <div>
+                <div class="close-btn-l"></div>
+                <div class="close-btn-r"></div>
+            </div>
+        </div>
+        <div class="prompt-items">
+            <div>Item 1</div>
+            <div>Item 2</div>
+            <div>Item 3</div>
+            <div>Item 4</div>
+        </div>
+    </div>
+    <div class="page">
+        <div class="header">
+            <div class="id">
+                <h1 class="name">hello</h1>
+                <img class="logo" src="hello.png">
+            </div>
+            <ul class="nav">
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+                <li>Item 4</li>
+            </ul>
+            <div class="menu" onclick="showMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+
+        <div class="banner">
+            <h1 onclick="changeText()" id="welcome">Welcome message</h1>
+        </div>
+
+        <div class="section-title">
+            <h1>section title</h1>
+        </div>
+
+        <div class="main-section">
+            <div class="row"> 
+                <div class="box">
+                    <h3>box title<h3>
+                </div>
+                <div class="box">
+                    <h3>box title<h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="box">
+                    <h3>box title<h3>
+                </div>
+                <div class="box">
+                    <h3>box title<h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="action">
+                <span onclick="showMore()">call to action</span>
+            </div>
+        </div><!--footer-->
+
+        <div class="main-section" id="more">
+            <div class="row"> 
+                <div class="box">
+                    <h3>box title<h3>
+                </div>
+                <div class="box">
+                    <h3>box title<h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="box">
+                    <h3>box title<h3>
+                </div>
+                <div class="box">
+                    <h3>box title<h3>
+                </div>
+            </div>
+        </div>
+    </div><!--page-->
+
+</body>
+</html>
