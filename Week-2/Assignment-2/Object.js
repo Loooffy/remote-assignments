@@ -26,7 +26,7 @@ function calculate(args) {
 console.log(calculate({n1:3, n2:4, op:"+"}));
 
 //my second way
-var numbers = new Object;
+var numbers = new Object();
 numbers.n1=3;
 numbers.n2=4;
 numbers.op="+";
