@@ -15,7 +15,7 @@ body {
     text-align: center;
     margin: 1em;
     font-size: 3em;
-    width: 5em;
+    min-width: 5em;
     height: 5em;
     border: 3px solid black;
 }
@@ -30,6 +30,8 @@ body {
 
 #sumBox {
     margin-bottom: 1em;
+    margin-right:1em;
+    margin-left:1em;
     display: flex;
     flex-grow: 3;
     flex-direction: column;
