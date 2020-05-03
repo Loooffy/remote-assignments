@@ -36,7 +36,7 @@ body {
     justify-content: center;
 }
 
-#sum {
+input {
     color: #444444;
     text-size: 4em;
     text-align: center;
@@ -51,7 +51,7 @@ body {
     font-size: 2em;
 }
 
-#submit {
+button {
     font-size: 2em;
     cursor: pointer;
     border: none;
@@ -61,10 +61,10 @@ body {
     height: 2em;
 }
 
-#submit:hover {
+button:hover {
     background: #55A5EE;
 }
 
-#submit:active {
+button:active {
     background: #3C99DC;
 }

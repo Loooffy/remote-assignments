@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+const cookieParser = require('cookie-parser')
 const port = 3000
 
 function getdata(req, res) {
@@ -21,10 +22,27 @@ function getdata(req, res) {
     }
 }
 
+function dealWithCookie(req, res) {
+    if (req.cookies.name == undefined){
+        res.render('form');
+    } else {
+        res.render('name', {name:req.cookies.name});
+    }
+}
+
+function addCookie(req, res) {
+    res.cookie('name', req.query.name)
+    res.render('name', {name:req.cookies.name})
+}
+
+app.set('view engine', 'pug')
+app.set('views', './views')
 app.use(express.static('static'))
+app.use(cookieParser())
 
 app.get('/', (req, res) => res.send('Hello, My Server!'))
 app.get('/getData', (req, res) => getdata(req, res))
-app.get('/myName',) 
+app.get('/myName', (req, res) => dealWithCookie(req, res))
+app.get('/trackName', (req, res) => addCookie(req, res))
 
 app.listen(port, () => console.log('Example app listening'))
