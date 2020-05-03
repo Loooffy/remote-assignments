@@ -32,7 +32,8 @@ function dealWithCookie(req, res) {
 
 function addCookie(req, res) {
     res.cookie('name', req.query.name)
-    res.render('name', {name:req.cookies.name})
+    //res.render('name', {name:req.cookies.name})
+    res.redirect('/myName')
 }
 
 app.set('view engine', 'pug')
@@ -40,7 +41,7 @@ app.set('views', './views')
 app.use(express.static('static'))
 app.use(cookieParser())
 
-app.get('/', (req, res) => res.send('Hello, My Server!'))
+app.get('/', (req, res) => res.send('Hello, My Server!<br><a href="/getData">getData</a><br><a href="/myName">myName</a><br><a href="/sum.html">sum</a>'))
 app.get('/getData', (req, res) => getdata(req, res))
 app.get('/myName', (req, res) => dealWithCookie(req, res))
 app.get('/trackName', (req, res) => addCookie(req, res))
