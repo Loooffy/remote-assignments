@@ -1,0 +1,26 @@
+<h3 id="week-4">Week-4</h3>
+<h4 id="assignment-1">Assignment-1</h4>
+<ul>
+<li>error1: 在setTimeout裡不能直接用callback(params)傳參數，而應該用callback.bind(this, params)<br />
+ref. <a href="https://www.jstips.co/zh_tw/javascript/passing-arguments-to-callback-functions/">將參數傳送到 callback 函式</a></li>
+</ul>
+<h4 id="assignment-2">Assignment-2</h4>
+<ul>
+<li><p>error1: 知道是語法錯誤，但不知道發生在哪裡，可以用現成的工具，e.g. JsrHint<br />
+ref. <a href="https://jshint.com/">JSHint</a></p></li>
+<li><p>error2:  在let info = document.getElementsByClassName(“info”) 下考慮以下三段code<br />
+<br />
+code-1 console.log(info[0])<br />
+code-2 setTimeout(() =&gt; console.log(info[0]), 1000)<br />
+code-3 console.log(info)<br />
+<br />
+code-1 會得到undifened，我想應該是頁面還沒載完就去抓info，所以抓不到<br />
+於是在code-2設個timeout驗證，回傳div element，表示結果上述的假設沒錯<br />
+ref. Arthur: 把javascript放在html的最底或是在body放onload可以確保讀完content之後才執行javascript<br />
+alter. document.DOMContentLoaded<br />
+</p></li>
+<li><p>error3: 要注意到底傳回來的是array還是object<br />
+</p></li>
+<li><p>error4:<br />
+設定帳號密碼：先<code>sudo mysql</code>進mysql之後<code>use mysql</code> 然後<code>create user 'name'@'localhost' identified by 'password'</code></p></li>
+</ul>

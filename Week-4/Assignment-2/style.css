@@ -1,0 +1,55 @@
+.info {
+    margin: 1em;
+    background: steelblue;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    height: 5vh;
+    padding: 0;
+    margin: 0.5em;
+    color: #F6F6E6;
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.products {
+    min-width: 80vw;
+    min-height: 60vh;
+    background: #F6F6E6;
+    margin-bottom: 3em;
+    margin-top: 1em;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.product {
+    height: 50%;
+    display: flex;
+    flex-grow:3;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    background: lightsteelblue;
+    margin: 2em;
+}
+
+.property {
+    color:#222222;
+    font-size:2em;
+    font-weight:bold;
+    margin: 0.2em;
+}
+
+.value {
+    color: #F6F6E6;
+    margin-bottom: 1em;
+    font-size:1.4em;
+    font-family: sans-serif;
+    font-weight: bold;
+}

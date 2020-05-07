@@ -1,0 +1,15 @@
+html
+    head
+    body
+        form(onsubmit="return validate(event)" name="signupForm" class="sign" action="/signup" method="post")
+            label='sign up'
+            input(placeholder="please enter your email" style="font-size:2em" name='signupEmail')
+            input(placeholder="please enter your password" style="font-size:2em" name='signupPw')
+            input(type="submit" value="submit" class='submit' onclick='return validate(event)')
+        form(onsubmit="return validate(event)" name="signinForm" class="sign" id="signin" action="/signin" method="post")
+            label='sign in'
+            input(placeholder="please enter your email" style="font-size:2em" name='signinEmail')
+            input(placeholder="please enter your password" style="font-size:2em" name='signinPw')
+            input(type="submit" value="submit" class="submit")
+        script(src='/sign.js')
+        link(rel='stylesheet' href='/style.css')
