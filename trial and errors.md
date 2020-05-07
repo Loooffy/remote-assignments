@@ -41,3 +41,6 @@ auto_increment對應的應該是int而非char
 - error5:\
 無法取得form data，還不是非常確定原因，但是有找到解法\
 ref. [multipart/form-data](https://medium.com/cubemail88/node-js-express-js-body-parser-%E8%99%95%E7%90%86multipart-form-data%E7%9A%84%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88-d89d2699b9f)
+
+- error6:\
+先送ajax request，會使server先建立一個user資料，於是等到真正要submit時，反而會回傳已被註冊

@@ -17,7 +17,7 @@ app.use(express.static('static'))
 
 app.get('/', (req, res) => homepage(req, res))
 app.post('/signup', (req, res) => signup(req, res))
-app.post('/signin',upload.array(), (req, res) => signin(req, res))
+app.post('/signin', (req, res) => signin(req, res))
 app.get('/member', (req, res) => member(req, res))
 
 app.listen(port, () => console.log('listening'))
@@ -31,12 +31,15 @@ function homepage(req, res){
 function signup(req, res){
     let email = req.body.signupEmail
     let password = req.body.signupPw
+    let xhr = req.body.xhr
     let con = dbConn()
     dbStart(con)
     function response(result){
         if (result === email) {
-            res.send('true')
+            res.send('registered')
             dbEnd(con)
+        } else if (xhr === 'true'){
+            res.send('not registered')
         } else {
             dbCreate(con, email, password)
             res.render('member', {message:'welcome!'})
@@ -49,15 +52,18 @@ function signup(req, res){
 function signin(req, res){
     let email = req.body.signinEmail
     let password = req.body.signinPw
+    let xhr = req.body.xhr
     let con = dbConn()
     dbStart(con)
     function response(result){
-        if (result === password) {
-            res.render('member', {message:'welcome back!'})
+        if (result != password) {
+            res.send('wrong')
+            dbEnd(con)
+        } else if (xhr === "true") {
+            res.send('matched')
             dbEnd(con)
         } else {
-            res.redirect('/')
-            //res.send(result)
+            res.render('member', {message:'welcome back!'})
             dbEnd(con)
         }
     }
@@ -65,7 +71,6 @@ function signin(req, res){
 }
 
 function member(req, res){
-    console.log(req.get('Referer'))
     res.render('member')
 } 
 
@@ -95,7 +100,7 @@ function dbQuery(con, field, q, response){
         if (Object.keys(result).length != 0){
             response(data[0][field])
         } else {
-            response('email or password wrong, please try again')
+            response('not found')
         }
     })
 }

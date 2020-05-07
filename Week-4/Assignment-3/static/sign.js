@@ -1,49 +1,63 @@
-function signup(event) {
-    let signupEmail = event.target.childNodes[1].value
-    let signupPw = event.target.childNodes[2].value
+function signup(form, email, password) {
+    let signupEmail = email
+    let signupPw = password
     let xhr = new XMLHttpRequest()
     xhr.onreadystatechange = function (){
         if (this.readyState === 4) {
-            if (xhr.resonseText === "true"){
+            if (xhr.responseText === "registered"){
                 alert("this email has been registered, please try another!")
-                return true
-            } else {
-                return false
+            } else if (xhr.responseText === "not registered") {
+                console.log('posted')
+                form.submit()
             }
-            //console.log(xhr.responseText)
-            //return(xhr.responseText)
         }
     }
-    xhr.open('POST', 'signup', false)
+    xhr.open('POST', 'signup', true)
     xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded')
-    xhr.send(`signupEmail=${signupEmail}&signupPw=${signupPw}`)
+    xhr.send(`signupEmail=${signupEmail}&signupPw=${signupPw}&xhr=true`)
 }
 
-function signin() {
-    let signinForm = document.getElementById('signin')
-    
-    //let signinEmail = document.getElementById('signinEmail').value
-    //let signinPw = document.getElementById('signinPw').value
-    //let xhr = new XMLHttpRequest()
-    //xhr.onreadystatechange = function (){
-        //if (this.readyState === 4) {
-            //let response = JSON.parse(this.responseText)
-            //location.assign(response.site+"?greetings="+response.greetings)
-        //}
-    //}
-    //xhr.open('GET', signinBase+'email='+signinEmail+'&password='+signinPw, true)
-    //location.assign(signinBase+'email='+signinEmail+'&password='+signinPw)
-    //xhr.send()
+function signin(form, email, password) {
+    let signinEmail = email
+    let signinPw = password
+    let xhr = new XMLHttpRequest()
+    xhr.onreadystatechange = function (){
+        if (this.readyState === 4) {
+            if (xhr.responseText === "wrong"){
+                alert("wrong email or password, please try again")
+            } else if (xhr.responseText === "matched") {
+                console.log('posted')
+                form.submit()
+            }
+        }
+    }
+    xhr.open('POST', 'signin', true)
+    xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded')
+    xhr.send(`signinEmail=${signinEmail}&signinPw=${signinPw}&xhr=true`)
 }
 
-function validate(event) {
-    let filled = event.target.childNodes[1].value != '' && event.target.childNodes[2].value != ''
-    //event.preventDefault()
+function signupValidate(event) {
+    event.preventDefault()
+    let form = document.forms[0]
+    let email = document.forms[0].childNodes[1].value
+    let password = document.forms[0].childNodes[2].value
+    let filled = email != '' && password != ''
     if (filled === false){
             alert('please fill the blank')
-            return false
         } else {
-            //return signup(event)
-            return true
+            signup(form, email, password)
+        }
+}
+
+function signinValidate(event) {
+    event.preventDefault()
+    let form = document.forms[1]
+    let email = document.forms[1].childNodes[1].value
+    let password = document.forms[1].childNodes[2].value
+    let filled = email != '' && password != ''
+    if (filled === false){
+            alert('please fill the blank')
+        } else {
+            signin(form, email, password)
         }
 }
